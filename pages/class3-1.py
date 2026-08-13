@@ -57,6 +57,27 @@ st.title("文字輸入元件")
 text = st.text_input("請輸入文字", value="這是預設文字")
 st.write(f"你輸入的文字是:{text}")
 
+# session_state
+
+if "ans1" not in st.session_state: #如果session_state中沒有ans這個變數
+    st.session_state.ans1 = 1 #設定session_state.ans=1
+
+if st.button("按下去ans加1", key="ans2"): # 如果按下按鈕
+    st.session_state.ans1 = st.session_state.ans1 + 1 # session_state.ans+1
+st.write(f"ans={st.session_state.ans1}") # 顯示session_state.ans的值
+
+
+if "apple" not in st.session_state: #如果session_state中沒有apple這個變數
+    st.session_state.apple = 1 #設定session_state.apple= 1
+
+#有時候按鈕按下，不一定會重新整理畫面 
+#這時候可以使用st.rerun()強制重新整理畫面
+if st.button("重新整理畫面", key="banana"): #如果按一下按鈕
+    # .....
+    st.rerun() #重新執行程式
+
+
+
 
 
 
